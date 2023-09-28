@@ -5,8 +5,8 @@ import GradeTable from '../components/GradeTable';
 import { TableRow } from '../components/GradeTable';
 const Projects = () => {
   const Bagruts : TableRow[] = [
-    {id:1, class: 'מתמטיקה'},  
-    {id:2, class: 'אנגלית'},
+    {id:1, class: 'מתמטיקה', unit : 5},  
+    {id:2, class: 'אנגלית', unit : 5},
     {id:3, class: 'תנ"ך',  unit : 2},
     {id:5, class: 'היסטוריה', unit : 2},  
     {id:6, class: 'עברית',  unit : 2},
