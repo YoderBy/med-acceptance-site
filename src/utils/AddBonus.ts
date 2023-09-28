@@ -8,7 +8,7 @@ const AddBonus = (row: TableRow, bonusCriteria: string) => {
                     return 30;
                 }
                 if ((row.class === 'מתמטיקה' || row.class === 'אנגלית') && row.unit === 4) {
-                    return 10;
+                    return 12.5;
                 }
                 if (bonusClass.includes(row.class) && row.unit === 5) {
                     return 25;
@@ -24,7 +24,7 @@ const AddBonus = (row: TableRow, bonusCriteria: string) => {
                     return 35;
                 }
                 if ((row.class === 'מתמטיקה' || row.class === 'אנגלית') && row.unit === 4) {
-                    return 12.5;
+                    return 10;
                 }
                 if (bonusClass.includes(row.class) && row.unit === 5) {
                     return 30;

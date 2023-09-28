@@ -1,4 +1,4 @@
-import { VStack, Heading, Image, Table, Thead, Tr, Th, Tbody, Input } from "@chakra-ui/react";
+import { VStack, Heading, Image, Table, Thead, Tr, Th, Tbody, Input, NumberInput, NumberInputField } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useMemo, useState } from "react";
 import { addAbortSignal } from "stream";
@@ -102,19 +102,63 @@ const GradeTable = ({ InputRows }: Props) => {
                         rows.map(row =>
                             <Tr backgroundColor={redRows.includes(row.id) ? '#FFEAEA' : ""} key={row.id}>
                                 <Th>{row.class}</Th>
-                                <Th><Input onChange={(e) => { handleChange(row.id, 'unit', parseInt(e.target.value)) }} defaultValue={row.unit}  min={2} max={10}></Input></Th>
-                                <Th><Input onChange={(e) => { handleChange(row.id, 'grade', parseInt(e.target.value)) }} defaultValue={row.grade}  min={55} max={100}></Input></Th>
-                                <Th>{row.bonus}</Th>
-                                <Th></Th>
+                                <Th>
+                                <NumberInput
+                                        defaultValue={row.unit}
+                                        min={2}
+                                        max={10}
+                                        onChange={(valueString) => {
+                                            const value = parseInt(valueString);
+                                            handleChange(row.id, 'grade', value);
+                                        }}>
+                                        <NumberInputField />
+                                    </NumberInput>
+                                    </Th>
+                                <Th>
+                                    <NumberInput
+                                        defaultValue={row.grade}
+                                        min={55}
+                                        max={100}
+                                        onChange={(valueString) => {
+                                            const value = parseInt(valueString);
+                                            handleChange(row.id, 'grade', value);
+                                        }}>
+                                        <NumberInputField />
+                                    </NumberInput>
+                                    </Th>
+                                    <Th>{AddBonus(row, bonusCriteria)}</Th>
+                                    <Th></Th>
                             </Tr>
                         )}
                     {
                         BonusRows.map(row =>
                             <Tr backgroundColor={redRows.includes(row.id) ? '#FFEAEA' : ""} key={row.id}>
                                 <Th><Input onChange={(e) => { handleChange(row.id, 'class', e.target.value) }} defaultValue={row.class}></Input></Th>
-                                <Th><Input onChange={(e) => { handleChange(row.id, 'unit', parseInt(e.target.value)) }} defaultValue={row.unit}></Input></Th>
-                                <Th><Input onChange={(e) => { handleChange(row.id, 'grade', parseInt(e.target.value)) }} defaultValue={row.grade} ></Input></Th>
-                                <Th>{row.bonus}</Th>
+                                <Th>
+                                <NumberInput
+                                        defaultValue={row.unit}
+                                        min={2}
+                                        max={10}
+                                        onChange={(valueString) => {
+                                            const value = parseInt(valueString);
+                                            handleChange(row.id, 'unit', value);
+                                        }}>
+                                        <NumberInputField />
+                                    </NumberInput>
+                                    </Th>
+                                <Th>
+                                    <NumberInput
+                                        defaultValue={row.grade}
+                                        min={55}
+                                        max={100}
+                                        onChange={(valueString) => {
+                                            const value = parseInt(valueString);
+                                            handleChange(row.id, 'grade', value);
+                                        }}>
+                                        <NumberInputField />
+                                    </NumberInput>
+                                    </Th>
+                                    <Th>{AddBonus(row, bonusCriteria)}</Th>
                                 <Th></Th>
                             </Tr>
                         )}
