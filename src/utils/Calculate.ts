@@ -8,14 +8,17 @@ const Calculate = (allRows: TableRow[], bonusCriteria: string) => {
 
     allRows.forEach(row => {
         if (row.unit && row.grade) {
-            sum += row.unit * (row.grade + AddBonus(row, bonusCriteria));
-            count += row.unit;
+            if (row.class == 'מתמטיקה' && bonusCriteria == 'tech' && row.unit == 5) {
+                sum += (row.unit + 5) * (row.grade + AddBonus(row, bonusCriteria));
+                count += 10;
+            }
+            else {
+                sum += row.unit * (row.grade + AddBonus(row, bonusCriteria));
+                count += row.unit;
+            }
         }
     })
 
-    //console.log(allRows);
-    //console.log(sum);
-    //console.log('the average is ' + Math.round((sum / count) * 100) / 100);
     if (sum === 0) {
         return null
     }
@@ -28,8 +31,8 @@ const Calculate = (allRows: TableRow[], bonusCriteria: string) => {
     if (Avg > 117 && bonusCriteria === 'tel aviv') {
         return 117
     }
-    if (Avg > 119 && bonusCriteria === 'heb') {
-        return 119
+    if (Avg > 130 && bonusCriteria === 'heb') {
+        return 130
     }
     return Avg;
 

@@ -30,22 +30,7 @@ function App() {
   return (
     <>
       <ChakraProvider theme={theme}>
-        <BrowserRouter>
-          <Flex>
-            <Box flex="1" padding={5}>
-
-              <Routes>
-                <Route path="/About" element={<About />} />
-              </Routes>
-
-              <Routes>
-                <Route path="/Projects" element={<Projects />} />
-              </Routes>
-            </Box>
-            
-            <Sidebar />
-          </Flex>
-        </BrowserRouter>
+        <Projects></Projects>
 
       </ChakraProvider>
     </>

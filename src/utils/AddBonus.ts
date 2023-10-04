@@ -4,6 +4,7 @@ const AddBonus = (row: TableRow, bonusCriteria: string) => {
     switch (bonusCriteria) {
         case "tel aviv":
             if (row.unit) {
+                //console.log( row.class + " "+ row.unit +"  "+ bonusCriteria);
                 if (row.class === 'מתמטיקה' && row.unit === 5) {
                     return 30;
                 }
@@ -13,13 +14,15 @@ const AddBonus = (row: TableRow, bonusCriteria: string) => {
                 if (bonusClass.includes(row.class) && row.unit === 5) {
                     return 25;
                 }
-                if (!bonusClass.includes(row.class) && row.unit === 5) {
+                if (row.unit === 5) {
                     return 20;
-                }
+                }   
             }
             break;
         case "tech":
             if (row.unit) {
+                
+                //console.log( row.class + " "+ row.unit +"  " +bonusCriteria);
                 if (row.class === 'מתמטיקה' && row.unit === 5) {
                     return 35;
                 }
@@ -29,14 +32,16 @@ const AddBonus = (row: TableRow, bonusCriteria: string) => {
                 if (bonusClass.includes(row.class) && row.unit === 5) {
                     return 30;
                 }
-                if (!bonusClass.includes(row.class) && row.unit === 5) {
+                if (row.unit === 5) {
                     return 20;
                 }
             }
             break;
         case "heb":
+
             if (row.unit) {
                 
+                //console.log( row.class + " "+ row.unit +"  "+ bonusCriteria);
                 if (row.class === 'מתמטיקה' && row.unit === 5) {
                     return 35;
                 }
@@ -47,7 +52,7 @@ const AddBonus = (row: TableRow, bonusCriteria: string) => {
                 if (bonusClass.includes(row.class) && row.unit === 5) {
                     return 25;
                 }
-                if (!bonusClass.includes(row.class) && row.unit === 5) {
+                if (row.unit === 5) {
                     return 20;
                 }
             }
